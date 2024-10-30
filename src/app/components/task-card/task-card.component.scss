@@ -1,0 +1,100 @@
+.task-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+  
+    &:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    &.completed {
+      opacity: 0.6;
+      transform: scale(0.98);
+      pointer-events: none;
+    }
+  
+    .task-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+  
+      .task-icon {
+        font-size: 1.5rem;
+      }
+  
+      .task-title {
+        flex-grow: 1;
+        font-weight: bold;
+        color: var(--text-secondary);
+      }
+  
+      .task-duration {
+        color: var(--text-primary);
+        font-size: 0.9rem;
+      }
+    }
+  
+    .progress-bar {
+      height: 6px;
+      background-color: var(--bg-secondary);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 10px 0;
+  
+      .progress-fill {
+        height: 100%;
+        background-color: var(--accent-primary);
+        transition: width 0.3s ease;
+      }
+    }
+  
+    .complete-button {
+      margin-top: 10px;
+      width: 100%;
+    }
+  
+    .ripple {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      width: 100px;
+      height: 100px;
+      margin: -50px;
+    }
+  }
+  
+  .priority-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
+  }
+  
+  .priority-high {
+    background-color: var(--error);
+    box-shadow: 0 0 10px rgba(247, 118, 142, 0.3);
+  }
+  
+  .priority-medium {
+    background-color: var(--warning);
+    box-shadow: 0 0 10px rgba(224, 175, 104, 0.3);
+  }
+  
+  .priority-low {
+    background-color: var(--success);
+    box-shadow: 0 0 10px rgba(158, 206, 106, 0.3);
+  }

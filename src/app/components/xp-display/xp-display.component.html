@@ -1,0 +1,14 @@
+<div class="xp-display" *ngIf="stats$ | async as stats">
+    <div class="xp-content">
+        <span class="xp-icon">✨</span>
+        <span class="xp-amount">
+            Level {{stats.level}} ({{stats.xp}}/1000 XP)
+        </span>
+    </div>
+    
+    <div class="xp-gain" 
+         *ngIf="showXpGain" 
+         [@floatUp]>
+        +{{xpGainAmount}} XP
+    </div>
+</div>

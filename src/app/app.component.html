@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="status-bar">
+    <span class="time">{{ currentTime | date:'h:mm a' }}</span>
+    <div class="status-icons">
+      <span>📶</span>
+      <span>🔋</span>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>Task Manager</h1>
+  </div>
+
+  <app-xp-display></app-xp-display>
+
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="overallProgress$ | async"></div>
+      <span class="progress-percentage">{{ overallProgress$ | async }}%</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button 
+      [class.active]="activeTab === 'common'"
+      (click)="switchTab('common')">
+      Common Tasks
+    </button>
+    <button 
+      [class.active]="activeTab === 'custom'"
+      (click)="switchTab('custom')">
+      Created by You
+    </button>
+  </div>
+
+  <div class="task-lists">
+    <ng-container *ngIf="activeTab === 'common'">
+      <app-task-card
+        *ngFor="let task of predefinedTasks$ | async"
+        [task]="task"
+        (taskComplete)="onTaskComplete($event)">
+      </app-task-card>
+    </ng-container>
+
+    <ng-container *ngIf="activeTab === 'custom'">
+      <div *ngIf="(tasks$ | async)?.length === 0" class="no-tasks">
+        No tasks created yet.
+      </div>
+      <app-task-card
+        *ngFor="let task of tasks$ | async"
+        [task]="task"
+        (taskComplete)="onTaskComplete($event)">
+      </app-task-card>
+    </ng-container>
+  </div>
+
+  <app-quick-access-menu></app-quick-access-menu>
+</div>

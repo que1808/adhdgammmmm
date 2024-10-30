@@ -1,0 +1,36 @@
+<div class="task-card" 
+     [@cardState]="task.completed ? 'completed' : 'active'"
+     [class.completed]="task.completed"
+     (mousedown)="createRipple($event)">
+    
+    <div class="priority-indicator" 
+         [class]="'priority-' + task.priority">
+    </div>
+
+    <div class="task-card-header">
+        <span class="task-icon">{{ task.subtasks[0]?.icon }}</span>
+        <span class="task-title">{{ task.name }}</span>
+        <span class="task-duration">
+          {{ task.subtasks | duration }}
+        </span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" 
+             [style.width.%]="task.progress">
+        </div>
+    </div>
+
+    <button class="complete-button" 
+            (click)="onComplete($event)"
+            [disabled]="task.completed">
+        Complete
+    </button>
+
+    <div *ngIf="rippleActive" 
+         class="ripple" 
+         [@ripple]
+         [style.left.px]="ripplePosition.x"
+         [style.top.px]="ripplePosition.y">
+    </div>
+</div>

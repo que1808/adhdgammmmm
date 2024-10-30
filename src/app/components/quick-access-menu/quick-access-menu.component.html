@@ -1,0 +1,16 @@
+<div class="quick-access-menu">
+    <div class="quick-access-items" [@menuState]="isOpen ? 'open' : 'closed'">
+        <button *ngFor="let item of menuItems"
+                class="menu-item"
+                (click)="item.action()">
+            <span class="item-icon">{{item.icon}}</span>
+            <span class="item-label">{{item.label}}</span>
+        </button>
+    </div>
+    
+    <button class="quick-access-button"
+            [@buttonRotate]="isOpen ? 'open' : 'closed'"
+            (click)="toggleMenu()">
+        ➕
+    </button>
+</div>

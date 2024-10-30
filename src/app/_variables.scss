@@ -1,0 +1,37 @@
+/* Theme Colors */
+:root {
+    --bg-primary: #1a1b26;
+    --bg-secondary: #24283b;
+    --text-primary: #a9b1d6;
+    --text-secondary: #7aa2f7;
+    --accent-primary: #7aa2f7;
+    --accent-secondary: #bb9af7;
+    --success: #9ece6a;
+    --error: #f7768e;
+    --warning: #e0af68;
+    --card-bg: #1f2335;
+    --hover-bg: #2f3549;
+    --xp-color: #bb9af7;
+  
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+  
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 15px;
+  
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.4);
+  
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.6s ease;
+  }
